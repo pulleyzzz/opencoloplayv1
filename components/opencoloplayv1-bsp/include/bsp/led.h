@@ -16,8 +16,13 @@
 extern "C" {
 #endif
 
-/** Number of SK6812 LEDs in the ring. */
+/**
+ * SK6812 chain capacity the driver is sized for. The board actually has 13
+ * LEDs on the line: 9 ring LEDs + 4 button backlights (indices 0..12);
+ * index 13 is wired to nothing and stays dark.
+ */
 #define BSP_LED_NUM             14
+#define BSP_LED_COUNT_ACTUAL    13
 
 /**
  * @brief Initialize the SK6812 LED ring (RMT backend) and enable the LED

@@ -16,7 +16,7 @@ coloplay v1 硬件的开源固件开发包:板级支持包(BSP)+ 示例应用,�
 | 音频 | ES8311 喇叭/麦克风 | I2S + esp_codec_dev,PA 静音控制 |
 | 按键 | 6 键(含旋钮按压) | espressif/button |
 | 旋钮 | EC11 编码器 | PCNT 4 倍频解码 |
-| LED | SK6812 灯环 ×14 | RMT(led_strip) |
+| LED | SK6812 ×13(9 环灯 + 4 按键背光) | RMT(led_strip) |
 
 ## 仓库结构
 
