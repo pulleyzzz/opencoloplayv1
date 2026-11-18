@@ -12,7 +12,7 @@
   - [音频(ES8311 喇叭/麦克风)](#音频es8311-喇叭麦克风)
   - [按键(6 键)](#按键6-键)
   - [旋钮(EC11 编码器)](#旋钮ec11-编码器)
-  - [LED 灯环(SK6812×14)](#led-灯环sk6812x14)
+  - [LED 灯环(SK6812×14)](#led-灯环sk6812x13)
 - [圆屏 UI 布局指南](#圆屏-ui-布局指南)
 - [Kconfig 配置项](#kconfig-配置项)
 - [烧录方式](#烧录方式)
@@ -69,9 +69,9 @@ dependencies:
 | 音频 codec | ES8311,I2C0 @0x18 | SDA=42 SCL=41 |
 | 音频数据 | I2S0 主机,16k/16bit/mono-left | MCLK=40 BCLK=39 WS=47 DOUT=21 DIN=38 |
 | PA 使能 | 高=出声,低=静音 | GPIO2 |
-| 按键 ×6 | 低有效,内部上拉 | K1=6 K2=1 K3=4 K4=5 EKEY=46 P=15 |
+| 按键 ×6 | 低有效,内部上拉, | K1=6 K2=1 K3=4 K4=5 EKEY=46 P=15 |
 | 旋钮 | EC11,PCNT 4 倍频 | A=9 B=10 |
-| LED 灯环 | SK6812×14,RMT 驱动 | DATA=48 |
+| LED 灯环 | SK6812×13(9个环灯+4个按键灯),RMT 驱动 | DATA=48 |
 | LED 电源轨 | 高=开 | GPIO8 |
 
 SoC:ESP32-S3,16MB Flash,8MB 八线 PSRAM。
@@ -143,7 +143,7 @@ esp_codec_dev_close(mic);
 
 ### 按键(6 键)
 
-基于 espressif/button(iot_button),拿到的是标准 `button_handle_t`:
+k1左上角, k2右上角, k3右下角, k4左下角. 基于 espressif/button(iot_button),拿到的是标准 `button_handle_t`:
 
 ```c
 button_handle_t btns[BSP_BUTTON_NUM];
