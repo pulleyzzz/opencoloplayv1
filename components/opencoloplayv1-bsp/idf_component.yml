@@ -1,0 +1,35 @@
+version: "0.1.0"
+description: Board Support Package for the coloplay v1 hardware (ESP32-S3)
+license: Apache-2.0
+targets:
+  - esp32s3
+tags:
+  - bsp
+
+dependencies:
+  idf: ">=6.1"
+
+  espressif/esp_lcd_gc9a01:
+    version: "^2"
+    public: true
+
+  # Same codec IC as esp-mosaico-bsp; the IDF registry driver wraps ES8311 well.
+  espressif/esp_codec_dev:
+    version: "2.0.0-beta2"
+    public: true
+
+  espressif/button:
+    version: "^4"
+    public: true
+
+  # Local fork of espressif/led_strip 2.5.5 with one fix: the SPI backend
+  # uses heap_caps_calloc without including esp_heap_caps.h, which breaks
+  # on IDF 6.2. Do not use the registry copy until a fixed release is out.
+  espressif/led_strip:
+    path: ../led_strip
+    version: "2.5.5"
+    public: true
+
+  espressif/esp_lvgl_adapter:
+    version: "0.6.2"
+    public: true

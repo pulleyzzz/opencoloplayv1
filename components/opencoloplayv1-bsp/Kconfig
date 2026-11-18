@@ -1,0 +1,19 @@
+menu "opencoloplayv1 BSP"
+
+    config BSP_GC9A01_SPI_CLK_HZ
+        int "GC9A01 SPI clock (Hz)"
+        range 1000000 80000000
+        default 40000000
+        help
+            SPI clock for the GC9A01 panel. The product firmware runs the bus
+            at 80 MHz in half-duplex SIO mode; 40 MHz is a safe default for
+            the esp_lcd stack. Raise it if the panel keeps up.
+
+    config BSP_GC9A01_BACKLIGHT_DEFAULT_DUTY
+        int "Backlight default duty (percent)"
+        range 0 100
+        default 70
+        help
+            Backlight PWM duty applied when the display is initialized.
+
+endmenu

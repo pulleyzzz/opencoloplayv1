@@ -1,0 +1,5 @@
+dependencies:
+  idf:
+    version: ">=6.1"
+  opencoloplayv1-bsp:
+    path: ../../../components/opencoloplayv1-bsp
